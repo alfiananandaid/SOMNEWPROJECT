@@ -1,0 +1,61 @@
+/* Responsive Breakpoints: Mobile <768px, Tablet 768px-1024px, Desktop >1024px */
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Switch to bottom navigation on mobile */
+  }
+
+  .bottom-nav {
+    display: flex;
+  }
+
+  .page-container {
+    padding: 16px;
+    padding-bottom: 80px; /* Space for bottom nav */
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  /* Desktop tables transform to Mobile Card List */
+  .data-table, .data-table thead, .data-table tbody, .data-table th, .data-table td, .data-table tr {
+    display: block;
+  }
+
+  .data-table thead {
+    display: none;
+  }
+
+  .data-table tr {
+    margin-bottom: 12px;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    border: var(--glass-border);
+  }
+
+  .data-table td {
+    padding: 6px 0;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    font-size: 0.9rem;
+  }
+
+  .data-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+  }
+}
