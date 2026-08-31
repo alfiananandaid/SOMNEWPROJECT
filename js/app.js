@@ -80,12 +80,16 @@ const App = {
       pageEl.style.display = 'block';
       document.querySelectorAll(`.nav-item[data-target="${pageId}"]`).forEach(n => n.classList.add('active'));
 
-      // Lazy load module data
+      // Sembunyikan Bottom Nav jika masuk ke halaman SO
+      const bottomNav = document.getElementById('main-bottom-nav');
+      if (pageId === 'stock-opname') {
+        bottomNav.style.display = 'none';
+      } else {
+        // Tampilkan kembali bottom nav untuk layar mobile
+        bottomNav.style.display = window.innerWidth <= 768 ? 'flex' : 'none'; 
+      }
+
       if (pageId === 'dashboard') Dashboard.load();
-      if (pageId === 'history') History.load();
-      if (pageId === 'users' && Auth.isAdmin()) Users.load();
-      if (pageId === 'logs' && Auth.isAdmin()) Logs.load();
-      if (pageId === 'settings' && Auth.isAdmin()) Settings.load();
     }
   },
 
