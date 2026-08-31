@@ -6,3 +6,4 @@ const CONFIG = {
   APP_NAME: "STOCK OPNAME MANDIRI",
   VERSION: "1.0.0"
 };
+
